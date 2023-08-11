@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0F0;
+            font-family: "Courier New", monospace;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: #0F0;
+            transition: color 0.3s ease-in-out;
+        }
+        a:hover {
+            color: #0FF;
+        }
+        .rainbow-text {
+            background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #0F0;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #0F0;
+            color: #000;
+            font-weight: bold;
+        }
+        .table-header {
+            font-size: 20px;
+        }
+        .project-name {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+   <center> <h1 class="rainbow-text">Projets et Applications Web</h1><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" width="150">  </center>    <audio autoplay>
+            <source src="{{ url_for('static', filename='sirene.mp3') }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    <ul>
+        <li>
+            <table>
+                <tr>
+                    <th class="table-header">Nom du projet</th>
+                    <th class="table-header">Type</th>
+                    <th class="table-header">URL</th>
+                </tr>
+                {% for project in projects %}
+                <tr>
+                    <td class="project-name"><a href="{{ project.url }}">{{ project.name }}</a></td>
+                    <td>{{ project.type }}</td>
+                    <td><a href="{{ project.url }}">{{ project.url }}</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </li>
+    </ul>
+</body><!-- GetButton.io widget -->
+<script type="text/javascript">
+(function () {
+var options = {
+telegram: "trknfriendsBot", // Telegram bot username
+telegram_color: "#129BF4", // Telegram button color
+whatsapp: "+18056009130", // WhatsApp number
+call_to_action: "Im trhacknon message me if you want", // Call to action
+button_color: "#E74339", // Color of button
+position: "right", // Position may be 'right' or 'left'
+order: "telegram,whatsapp", // Order of buttons
+pre_filled_message: "trhacknon replit project", // WhatsApp pre-filled message
+};
+var proto = 'https:', host = "getbutton.io", url = proto + '//static.' + host;
+var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+})();
+</script>
+   <!-- GetButton.io widget -->
+    <script type="text/javascript">
+    // ... your existing widget script ...
+    </script>
+    <!-- /GetButton.io widget -->
+
+    <footer style="position: fixed; bottom: 0; left: 0; width: 100%;">
+        <center><a href="https://www.wieistmeineip.de/cometo/?en">
+            <img src="https://www.wieistmeineip.de/ip-address/?size=468x60" border="3" width="470" height="60" alt="IP">
+        </a></center></footer>
+</html>

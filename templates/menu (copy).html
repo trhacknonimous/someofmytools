@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0F0;
+            font-family: "Courier New", monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 28px;
+            margin: 20px 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #0F0;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #0F0;
+            color: #000;
+            font-weight: bold;
+        }
+        a {
+            color: #0F0;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+        a:hover {
+            color: #0FF;
+        }
+        .rainbow-text {
+            background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="rainbow-text">Projets et Applications Web</h1>
+  <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" width="150">      <audio autoplay>
+            <source src="{{ url_for('static', filename='sirene.mp3') }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <table>
+            <tr>
+                <th>Nom du projet</th>
+                <th>URL</th>
+            </tr>
+            {% for project in projects %}
+            <tr>
+                <td><a href="{{ project.url }}">{{ project.name }}</a></td>
+                <td><a href="{{ project.url }}">{{ project.url }}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
